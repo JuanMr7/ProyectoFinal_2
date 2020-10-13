@@ -141,5 +141,32 @@
         "lon": 4.7638897896,
         "tz": "Europe\/España",
         "hours": "12h 40min"
+    },
+    {
+        "icao": "EHAM",
+        "iata": "BCN",
+        "name": "Aeropuerto Josep Tarradellas Barcelona-El Prat",
+        "city": "San Bartolomé (Lanzarote)",
+        "state": "Barcelona/cataluña",
+        "country": "España",
+        "elevation": -11,
+        "lat": 52.3086013794,
+        "lon": 4.7638897896,
+        "tz": "Europe\/España",
+        "hours": "12h 40min"
+    },
+    {
+        "icao": "EHAM",
+        "iata": "BHI",
+        "name": "Aeropuerto Comandante Espora",
+        "city": "Bahía Blanca",
+        "state": "Buenos Aires",
+        "country": "Argentina",
+        "elevation": -11,
+        "lat": 52.3086013794,
+        "lon": 4.7638897896,
+        "tz": "Europe\/España",
+        "hours": "12h 40min"
     }
+
 ]
