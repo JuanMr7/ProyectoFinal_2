@@ -101,7 +101,7 @@ def buscar_vuelos_destino(message):
                     l_aeropuerto.append(a)
 
         if l_aeropuerto:
-            bot.send_message(message.chat.id, "*Vuelos que van a " + mensj + " son:*", parse_mode="MarkdownV2")
+            bot.send_message(message.chat.id, "*Los vuelos que estan disponibles a " + mensj + " son:*", parse_mode="MarkdownV2")
             for aeropuerto in l_aeropuerto:
                 for a in aeropuertos:
                     for vuelo in a.vuelos:
@@ -137,14 +137,14 @@ def buscar_vuelos_origen(message):
 
         if l_aeropuerto:
             for aeropuerto in l_aeropuerto:
-                bot.send_message(message.chat.id, "*Vuelos que dispone " + aeropuerto.nombre + " son:*", parse_mode="MarkdownV2")
+                bot.send_message(message.chat.id, "*Los vuelos que dispone el " + aeropuerto.nombre + " son: *", parse_mode="MarkdownV2")
                 for vuelo in aeropuerto.vuelos:
                     if vuelo.asientos > 0:
                         m = "("+vuelo.aeropuerto_destino.iata+")"+vuelo.aeropuerto_destino.nombre + ", el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
                         bot.send_message(message.chat.id, m)
 
     except Exception:
-        bot.send_message(message.chat.id, "Ingresó mal la información")
+        bot.send_message(message.chat.id, "Datos Erróneos")
 
 
 #comprar vuelo de ida
@@ -172,7 +172,7 @@ def comprar_vuelo_ida(message):
             for vuelo in aeropuerto_origen.vuelos:
                 if vuelo.aeropuerto_destino == aeropuerto_destino and vuelo.asientos >= cant:
                     if imprimir_mensaje:
-                        bot.send_message(message.chat.id, "Escriba el número de la opción que desea comprar")
+                        bot.send_message(message.chat.id, "Escoja la opción que desea comprar: ")
                         imprimir_mensaje = False
                     m = str(i)+".-Día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
                     bot.send_message(message.chat.id, m)
@@ -182,7 +182,7 @@ def comprar_vuelo_ida(message):
             if imprimir_mensaje:
                 bot.send_message(message.chat.id, "No existe vuelos para ese lugar")
     except Exception:
-        bot.send_message(message.chat.id, "Ingresó mal la información")
+        bot.send_message(message.chat.id, "Datos mal ingresados")
 
 
 #comprar vuelo de ida-vuelta
@@ -220,7 +220,7 @@ def comprar_vuelo_ida_vuelta(message):
                                 if vuelo.fecha == vuelo_2.fecha  and vuelo.hora >= vuelo_2.hora :
                                     continue
                                 if imprimir_mensaje:
-                                    bot.send_message(message.chat.id, "Escriba el número de la opción que desea comprar")
+                                    bot.send_message(message.chat.id, "Escoja la opción que desea comprar")
                                     imprimir_mensaje = False
                                 m = str(i)+".-Desde "+ aeropuerto_origen.nombre +" hasta"+ aeropuerto_destino.nombre+"el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
                                 m2 = "Desde "+ aeropuerto_destino.nombre +" hasta"+ aeropuerto_origen.nombre+"el día " + vuelo_2.fecha.isoformat() + " a las " + vuelo_2.hora.isoformat() + ", asientos disponibles: " + str(vuelo_2.asientos)
@@ -233,7 +233,7 @@ def comprar_vuelo_ida_vuelta(message):
             if imprimir_mensaje:
                 bot.send_message(message.chat.id, "No existe vuelos de ida-vuelta para ese lugar")
     except Exception:
-        bot.send_message(message.chat.id, "Ingresó mal la información")
+        bot.send_message(message.chat.id, "Datos Erróneos")
 
 @bot.message_handler(func = lambda msg: buscar_usuario(msg.chat.id) != None)
 def escoger(message):
@@ -251,7 +251,7 @@ def escoger(message):
                     vuelo.asientos -= usuario.__cant_asientos_temp__
                     usuario.registro_vuelos_comprados.append( Registro_Vuelo(vuelo, usuario.__cant_asientos_temp__ ))
 
-                bot.send_message(message.chat.id, "Vuelo registrado")
+                bot.send_message(message.chat.id, "Su vuelo ha sido registrado con éxito")
                 usuario.reset()
                 usuario.estado = Estado.BUSCANDO
             except Exception:
@@ -272,17 +272,15 @@ def escoger(message):
                         usuario.registro_vuelos_comprados.append( Registro_Vuelo(vuelos[i], usuario.__cant_asientos_temp__ ))
                         usuario.registro_vuelos_comprados.append( Registro_Vuelo(vuelos[i+1], usuario.__cant_asientos_temp__ ))
 
-                bot.send_message(message.chat.id, "Vuelo registrado")
+                bot.send_message(message.chat.id, "Su vuelo ha sido registrado con éxito")
                 usuario.reset()
                 usuario.estado = Estado.BUSCANDO
             except Exception:
                 pass
             
-
-        
-
 while True:
     try:
         bot.polling()
     except Exception:
         time.sleep(15)
+        

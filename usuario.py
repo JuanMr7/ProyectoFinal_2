@@ -1,4 +1,5 @@
 from enum import Enum
+
 class Estado(Enum):
     BUSCANDO = 1
     COMPRANDO_IDA = 2
