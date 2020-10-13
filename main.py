@@ -106,7 +106,7 @@ def buscar_vuelos_destino(message):
                 for a in aeropuertos:
                     for vuelo in a.vuelos:
                         if aeropuerto.nombre == vuelo.aeropuerto_destino.nombre and vuelo.asientos > 0:
-                            m = "Desde " +"("+a.iata+")" + a.nombre + " hasta " +"("+aeropuerto.iata +")" +aeropuerto.nombre + ", el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
+                            m = "Desde " +"("+a.iata+")" + a.nombre + " hasta " +"("+aeropuerto.iata +")" +aeropuerto.nombre + ", el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)+"\nPrecio: "+str(vuelo.precio)
                             bot.send_message(message.chat.id, m)
 
     except Exception:
@@ -174,7 +174,7 @@ def comprar_vuelo_ida(message):
                     if imprimir_mensaje:
                         bot.send_message(message.chat.id, "Escoja la opción que desea comprar: ")
                         imprimir_mensaje = False
-                    m = str(i)+".-Día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
+                    m = str(i)+".-Día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos) +"\nPrecio: "+str(vuelo.precio)
                     bot.send_message(message.chat.id, m)
                     usuario.__vuelos_temp__.append(vuelo)
                     i += 1
@@ -222,8 +222,8 @@ def comprar_vuelo_ida_vuelta(message):
                                 if imprimir_mensaje:
                                     bot.send_message(message.chat.id, "Escoja la opción que desea comprar")
                                     imprimir_mensaje = False
-                                m = str(i)+".-Desde "+ aeropuerto_origen.nombre +" hasta"+ aeropuerto_destino.nombre+"el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
-                                m2 = "Desde "+ aeropuerto_destino.nombre +" hasta"+ aeropuerto_origen.nombre+"el día " + vuelo_2.fecha.isoformat() + " a las " + vuelo_2.hora.isoformat() + ", asientos disponibles: " + str(vuelo_2.asientos)
+                                m = str(i)+".-Desde "+ aeropuerto_origen.nombre +" hasta"+ aeropuerto_destino.nombre+"el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos) +"\nPrecio: "+str(vuelo.precio)
+                                m2 = "Desde "+ aeropuerto_destino.nombre +" hasta"+ aeropuerto_origen.nombre+"el día " + vuelo_2.fecha.isoformat() + " a las " + vuelo_2.hora.isoformat() + ", asientos disponibles: " + str(vuelo_2.asientos) +"\nPrecio: "+str(vuelo.precio)
                                 bot.send_message(message.chat.id, m)
                                 bot.send_message(message.chat.id, m2)
                                 usuario.__vuelos_temp__.append(vuelo)

@@ -1,16 +1,17 @@
 import datetime
-import random
+import random as rd
 
 class Vuelo:
-    def __init__(self, aeropuerto_destino, hora, fecha, aeropuerto_origen):
+    def __init__(self, aeropuerto_destino, hora, fecha, aeropuerto_origen,precio):
         self.aeropuerto_origen = aeropuerto_origen
         self.aeropuerto_destino = aeropuerto_destino
         self.hora = hora
         self.fecha = fecha
         self.asientos = 100
+        self.precio = precio
 
     def __repr__(self):
-        return "Aeropuerto destino: " + self.aeropuerto_destino.__repr__() + ", fecha: " + self.fecha.isoformat() +", hora: " + self.hora.isoformat()+"Precio: "+
+        return "Aeropuerto destino: " + self.aeropuerto_destino.__repr__() + ", fecha: " + self.fecha.isoformat() +", hora: " + self.hora.isoformat()+"Precio: "+str(self.precio)
 
 
 class Aeropuerto:
@@ -23,15 +24,16 @@ class Aeropuerto:
         self.vuelos = []
 
     def generar_vuelos(self, aeropuertos, min_vuelos = 4, max_vuelos = 8):
-        for i in range( 0, random.randrange(min_vuelos, max_vuelos)):
+        for i in range( 0, rd.randrange(min_vuelos, max_vuelos)):
             aeropuerto = self
 
             while aeropuerto == self:
-                aeropuerto = aeropuertos[random.randrange(0, len(aeropuertos))]
+                aeropuerto = aeropuertos[rd.randrange(0, len(aeropuertos))]
 
-            hora = datetime.time(random.randrange(0, 24), random.randrange(0, 60))
-            fecha = datetime.date.today() + datetime.timedelta(days= random.randrange(1, 16))
-            vuelo = Vuelo(aeropuerto, hora, fecha, self)
+            hora = datetime.time(rd.randrange(0, 24), rd.randrange(0, 60))
+            fecha = datetime.date.today() + datetime.timedelta(days= rd.randrange(1, 16))
+            precio = rd.randint(100,500)
+            vuelo = Vuelo(aeropuerto, hora, fecha, self,precio)
             self.vuelos.append(vuelo)
 
     def eliminar_vuelos(self):
