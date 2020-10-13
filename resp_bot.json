@@ -1,7 +1,7 @@
 {
     "saludo" : "Hola ",
     "ayuda" : ["Bienvenido/@ a la Aerolinea AIR-SOFTPRO\n",
-                "******* Instrucciones del programa *******",
+                "******* Instrucciones del programa *******\n",
                 "* Para ver todos los vuelos ofrecemos use el comando /list \n\n",
                 "* Use el comando /searchd seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone ese aeropuerto ej: /searchd España\n\n",
                 "* Use el comando /searcho seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone el aeropuerto ej: /searcho Ecuador\n\n",

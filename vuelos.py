@@ -2,16 +2,15 @@ import datetime
 import random as rd
 
 class Vuelo:
-    def __init__(self, aeropuerto_destino, hora, fecha, aeropuerto_origen,precio):
+    def __init__(self, aeropuerto_destino, hora, fecha, aeropuerto_origen):
         self.aeropuerto_origen = aeropuerto_origen
         self.aeropuerto_destino = aeropuerto_destino
         self.hora = hora
         self.fecha = fecha
         self.asientos = 100
-        self.precio = precio
 
     def __repr__(self):
-        return "Aeropuerto destino: " + self.aeropuerto_destino.__repr__() + ", fecha: " + self.fecha.isoformat() +", hora: " + self.hora.isoformat()+"Precio: "+str(self.precio)
+        return "Aeropuerto destino: " + self.aeropuerto_destino.__repr__() + ", fecha: " + self.fecha.isoformat() +", hora: " + self.hora.isoformat()
 
 
 class Aeropuerto:
@@ -32,8 +31,7 @@ class Aeropuerto:
 
             hora = datetime.time(rd.randrange(0, 24), rd.randrange(0, 60))
             fecha = datetime.date.today() + datetime.timedelta(days= rd.randrange(1, 16))
-            precio = rd.randint(100,500)
-            vuelo = Vuelo(aeropuerto, hora, fecha, self,precio)
+            vuelo = Vuelo(aeropuerto, hora, fecha, self)
             self.vuelos.append(vuelo)
 
     def eliminar_vuelos(self):

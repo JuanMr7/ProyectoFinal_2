@@ -5,7 +5,6 @@ import json
 import time
 import datetime
 
-#TODO: cambiar la ruta en colab
 aeropuertos_json = json.load(open("aeropuertos.json", "r",encoding="utf-8", errors="ignore"))
 resp_bot = json.load(open("resp_bot.json", "r",encoding="utf-8", errors="ignore"))
 
@@ -53,7 +52,7 @@ def buscar_usuario(chat_id):
 token = "1238450301:AAH6bn7nqmDvQMlmU8--OT6FuQbX7uK5a38"
 bot = telebot.TeleBot(token = token)
 
-#region Metodos del bot
+#BOT
 #Comienzo de la conversación
 @bot.message_handler(commands = ["start"])
 def saludar(message):
@@ -106,7 +105,7 @@ def buscar_vuelos_destino(message):
                 for a in aeropuertos:
                     for vuelo in a.vuelos:
                         if aeropuerto.nombre == vuelo.aeropuerto_destino.nombre and vuelo.asientos > 0:
-                            m = "Desde " +"("+a.iata+")" + a.nombre + " hasta " +"("+aeropuerto.iata +")" +aeropuerto.nombre + ", el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)+"\nPrecio: "+str(vuelo.precio)
+                            m = "Desde " +"("+a.iata+")" + a.nombre + " hasta " +"("+aeropuerto.iata +")" +aeropuerto.nombre + ", el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
                             bot.send_message(message.chat.id, m)
 
     except Exception:
@@ -174,7 +173,7 @@ def comprar_vuelo_ida(message):
                     if imprimir_mensaje:
                         bot.send_message(message.chat.id, "Escoja la opción que desea comprar: ")
                         imprimir_mensaje = False
-                    m = str(i)+".-Día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos) +"\nPrecio: "+str(vuelo.precio)
+                    m = str(i)+".-Día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
                     bot.send_message(message.chat.id, m)
                     usuario.__vuelos_temp__.append(vuelo)
                     i += 1
@@ -222,8 +221,8 @@ def comprar_vuelo_ida_vuelta(message):
                                 if imprimir_mensaje:
                                     bot.send_message(message.chat.id, "Escoja la opción que desea comprar")
                                     imprimir_mensaje = False
-                                m = str(i)+".-Desde "+ aeropuerto_origen.nombre +" hasta"+ aeropuerto_destino.nombre+"el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos) +"\nPrecio: "+str(vuelo.precio)
-                                m2 = "Desde "+ aeropuerto_destino.nombre +" hasta"+ aeropuerto_origen.nombre+"el día " + vuelo_2.fecha.isoformat() + " a las " + vuelo_2.hora.isoformat() + ", asientos disponibles: " + str(vuelo_2.asientos) +"\nPrecio: "+str(vuelo.precio)
+                                m = str(i)+".-Desde "+ aeropuerto_origen.nombre +" hasta"+ aeropuerto_destino.nombre+"el día " + vuelo.fecha.isoformat() + " a las " + vuelo.hora.isoformat() + ", asientos disponibles: " + str(vuelo.asientos)
+                                m2 = "Desde "+ aeropuerto_destino.nombre +" hasta"+ aeropuerto_origen.nombre+"el día " + vuelo_2.fecha.isoformat() + " a las " + vuelo_2.hora.isoformat() + ", asientos disponibles: " + str(vuelo_2.asientos) 
                                 bot.send_message(message.chat.id, m)
                                 bot.send_message(message.chat.id, m2)
                                 usuario.__vuelos_temp__.append(vuelo)
