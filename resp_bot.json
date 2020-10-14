@@ -2,11 +2,11 @@
     "saludo" : "Hola ",
     "ayuda" : ["Bienvenido/@ a la Aerolinea AIR-SOFTPRO\n",
                 "******* Instrucciones del programa *******\n",
-                "* Para ver todos los vuelos ofrecemos use el comando /list \n\n",
-                "* Use el comando /searchd seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone ese aeropuerto ej: /searchd España\n\n",
-                "* Use el comando /searcho seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone el aeropuerto ej: /searcho Ecuador\n\n",
-                "* Para comprar el vuelo de ida use el comando /buy_ticket seguido del código IATA del aeropuerto de origen,luego el código IATA al aeropuerto de destino y por ultimo la cantidad de asientos ej: /buy_ticket GYE PTY 3\n\n",
-                "* Para comprar vuelo de ida-vuelta use el comando /buyrt_ticket seguido del código IATA del aeropuerto de origen, luego el código IATA al aeropuerto de destino y al último la cantidad de asientos ej: /buy_ticket GYE PTY 3\n\n"],
+                "* Para ver todos los vuelos ofrecemos use el comando /LIST \n\n",
+                "* Use el comando /SEARCHD seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone ese aeropuerto \n Sintaxis: /searchd España\n\n",
+                "* Use el comando /SEARCHO seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone el aeropuerto \n Sintaxis /searcho Guayauil\n\n",
+                "* Para comprar el vuelo de ida use el comando /BUY_TICKET seguido del código IATA del aeropuerto de origen,luego el código IATA al aeropuerto de destino y por ultimo la cantidad de asientos \n Sintaxis /BUY_TICKET GYE PTY 3\n\n",
+                "* Para comprar vuelo de ida-vuelta use el comando /BUYRT_TICKET seguido del código IATA del aeropuerto de origen, luego el código IATA al aeropuerto de destino y al último la cantidad de asientos  /BUYRT_TICKET GYE PTY 3\n\n"],
     "aceptar" : "Su vuelo ha sido registrado con éxito.",
     "cancelar" : "Su registro ha sido cancelado."
 }
