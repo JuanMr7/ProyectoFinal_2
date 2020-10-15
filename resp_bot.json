@@ -3,7 +3,7 @@
     "ayuda" : ["Bienvenido/@ a la Aerolinea AIR-SOFTPRO\n\n",
                 "******* Instrucciones del programa *******\n\n",
                 "* Use el comando /help para visualizar este mismo panel de instrucciones\n\n",
-                "* Para ver todos los vuelos ofrecemos use el comando /info \n\n",
+                "* Para ver todos los vuelos ofrecemos use el comando /list \n\n",
                 "* Use el comando /searchd seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone ese aeropuerto \n Sintaxis: /searchd España\n\n",
                 "* Use el comando /searcho seguido del: código IATA, nombre del aeropuerto, ciudad o país para buscar los vuelos que dispone el aeropuerto \n Sintaxis /searcho Guayauil\n\n",
                 "* Para comprar el vuelo de ida use el comando /buy_ticket seguido del código IATA del aeropuerto de origen,luego el código IATA al aeropuerto de destino y por ultimo la cantidad de asientos \n Sintaxis /buy_ticket GYE PTY 3\n\n",
